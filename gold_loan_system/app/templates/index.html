@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to the Gold Loan Management System</h1>
+        <p class="col-md-8 fs-4">Your trusted partner in gold financing. We provide a secure, fast, and transparent way to manage your gold loans.</p>
+        {% if current_user.is_anonymous %}
+        <a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}" role="button">Get Started</a>
+        <a class="btn btn-secondary btn-lg" href="{{ url_for('auth.login') }}" role="button">Sign In</a>
+        {% else %}
+        <a class="btn btn-primary btn-lg" href="{{ url_for('main.dashboard') }}" role="button">Go to Your Dashboard</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+            <h2>Secure & Insured</h2>
+            <p>Your assets are stored in secure vaults with full insurance coverage. We prioritize the safety of your valuables above all else.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+            <h2>Fast & Transparent</h2>
+            <p>Get your loan sanctioned in minutes with our streamlined process. No hidden fees, no complex paperwork. Track everything online through your personal dashboard.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
